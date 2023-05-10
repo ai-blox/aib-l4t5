@@ -1,0 +1,7 @@
+[submodule "kernel/kernel-5.10"]
+	path = kernel/kernel-5.10
+	url = https://github.com/ai-blox/l4t5-kernel-kernel-5.10.git
+[submodule "kernel/nvgpu"]
+	path = kernel/nvgpu
+	url = https://github.com/ai-blox/l4t5-kernel-nvgpu.git
+
