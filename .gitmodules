@@ -5,3 +5,6 @@
 	path = kernel/nvgpu
 	url = https://github.com/ai-blox/l4t5-kernel-nvgpu.git
 
+[submodule "kernel/nvidia"]
+	path = kernel/nvidia
+	url = https://github.com/ai-blox/l4t5-kernel-nvidia.git
