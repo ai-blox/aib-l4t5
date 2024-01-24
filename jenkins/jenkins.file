@@ -38,7 +38,7 @@ pipeline {
                 export KERNEL_DIR=kernel-5.10
                 export CROSS_COMPILE=/l4t-gcc/bin/aarch64-buildroot-linux-gnu-
                 export JETPACK=$HOME/nvidia/nvidia_sdk/JetPack_5.0.2_Linux_JETSON_XAVIER_NX_TARGETS/Linux_for_Tegra
-                export KERNEL_OUT=/aib-l4t5/images
+                export KERNEL_OUT=$HOME/images
                 export KERNEL_MODULES_OUT=$JETPACK/images/modules
 
                 mkdir -p $KERNEL_OUT
