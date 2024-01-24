@@ -41,6 +41,8 @@ pipeline {
                 export KERNEL_OUT=$HOME/images
                 export KERNEL_MODULES_OUT=$JETPACK/images/modules
 
+                ls /l4t-gcc/*
+
                 mkdir -p $KERNEL_OUT
                 cd kernel/kernel-5.10
                 make mrproper
