@@ -23,9 +23,32 @@ pipeline {
         stage('Pull Kernel') {
             steps {
                 sh '''#!/bin/bash -ex
-                    git submodule init
-                    git submodule update
-                    git submodule foreach 'git checkout aib-l4t-r35.2.1'
+                git submodule init
+                git submodule update
+                git submodule foreach 'git checkout aib-l4t-r35.2.1'
+                '''
+            }
+        }
+        stage('Build Kernel') {
+            steps {
+                sh '''#!/bin/bash -ex
+                export TOOLCHAIN_SRC=bootlin-toolchain-gcc-93 
+                export TOOLCHAIN_DIR=gcc-9.3-glibc-2.31
+                export KERNEL_SRC=l4t-sources-35-1
+                export KERNEL_DIR=kernel-5.10
+                export CROSS_COMPILE=/l4t-gcc/bin/aarch64-buildroot-linux-gnu-
+                export JETPACK=$HOME/nvidia/nvidia_sdk/JetPack_5.0.2_Linux_JETSON_XAVIER_NX_TARGETS/Linux_for_Tegra
+                export KERNEL_OUT=/aib-l4t5/images
+                export KERNEL_MODULES_OUT=$JETPACK/images/modules
+
+                mkdir -p $KERNEL_OUT
+                cd kernel/kernel-5.10
+                make mrproper
+
+                make ARCH=arm64 O=$KERNEL_OUT tegra_defconfig
+
+                make ARCH=arm64 O=$KERNEL_OUT CROSS_COMPILE=$CROSS_COMPILE -j4 LOCALVERSION="-tegra"
+
                 '''
             }
         }
