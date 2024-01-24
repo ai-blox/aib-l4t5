@@ -14,7 +14,7 @@ RUN apt-get install -y --reinstall ca-certificates && \
 
 WORKDIR /l4t5-gcc
 
-RUN wget -O bootlin-toolchain-gcc-93.tar.gz https://developer.nvidia.com/embedded/jetson-linux/bootlin-toolchain-gcc-93 && \
+RUN wget -nv -O bootlin-toolchain-gcc-93.tar.gz https://developer.nvidia.com/embedded/jetson-linux/bootlin-toolchain-gcc-93 && \
     tar -xf bootlin-toolchain-gcc-93.tar.gz
 
 WORKDIR /aib-l4t5
