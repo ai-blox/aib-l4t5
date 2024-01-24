@@ -1,0 +1,51 @@
+[submodule "kernel/kernel-5.10"]
+	path = kernel/kernel-5.10
+	url = https://github.com/ai-blox/l4t5-kernel-kernel-5.10.git
+[submodule "kernel/nvgpu"]
+	path = kernel/nvgpu
+	url = https://github.com/ai-blox/l4t5-kernel-nvgpu.git
+[submodule "kernel/nvidia"]
+	path = kernel/nvidia
+	url = https://github.com/ai-blox/l4t5-kernel-nvidia.git
+[submodule "hardware/nvidia/platform/tegra/common"]
+	path = hardware/nvidia/platform/tegra/common
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-tegra-common.git
+[submodule "hardware/nvidia/soc/t19x"]
+	path = hardware/nvidia/soc/t19x
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-soc-t19x.git
+[submodule "hardware/nvidia/platform/t19x/common"]
+	path = hardware/nvidia/platform/t19x/common
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-t19x-common
+[submodule "hardware/nvidia/platform/t19x/galen/kernel-dts"]
+	path = hardware/nvidia/platform/t19x/galen/kernel-dts
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-t19x-galen-kernel-dts.git
+[submodule "hardware/nvidia/platform/t19x/jakku/kernel-dts"]
+	path = hardware/nvidia/platform/t19x/jakku/kernel-dts
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-t19x-jakku-kernel-dts.git
+[submodule "hardware/nvidia/platform/t19x/mccoy/kernel-dts"]
+	path = hardware/nvidia/platform/t19x/mccoy/kernel-dts
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-t19x-mccoy-kernel-dts.git
+[submodule "hardware/nvidia/platform/t19x/galen-industrial/kernel-dts"]
+	path = hardware/nvidia/platform/t19x/galen-industrial/kernel-dts
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-t19x-galen-industrial-kernel-dts.git
+[submodule "hardware/nvidia/platform/t23x/common/kernel-dts"]
+	path = hardware/nvidia/platform/t23x/common/kernel-dts
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-t23x-common-kernel-dts.git
+[submodule "hardware/nvidia/platform/t23x/p3768/kernel-dts"]
+	path = hardware/nvidia/platform/t23x/p3768/kernel-dts
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-t23x-p3768-kernel-dts.git
+[submodule "hardware/nvidia/platform/t23x/concord/kernel-dts"]
+	path = hardware/nvidia/platform/t23x/concord/kernel-dts
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-t23x-concord-kernel-dts.git
+[submodule "hardware/nvidia/platform/t23x/prometheus/kernel-dts"]
+	path = hardware/nvidia/platform/t23x/prometheus/kernel-dts
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-platform-t23x-prometheus-kernel-dts.git
+[submodule "hardware/nvidia/soc/t23x"]
+	path = hardware/nvidia/soc/t23x
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-soc-t23x.git
+[submodule "hardware/nvidia/soc/tegra"]
+	path = hardware/nvidia/soc/tegra
+	url = https://github.com/ai-blox/l4t5-hardware-nvidia-soc-tegra.git
+[submodule "tegra/kernel-src/nv-kernel-display-driver"]
+	path = tegra/kernel-src/nv-kernel-display-driver
+	url = https://github.com/ai-blox/l4t5-tegra-kernel-src-nv-kernel-display-driver.git
