@@ -18,14 +18,15 @@ RUN apt-get install -y --reinstall ca-certificates && \
     update-ca-certificates && \
     git config --global http.sslCAinfo /etc/ssl/certs/ca-certificates.crt
 
+USER ubuntu
+
 WORKDIR /l4t5-gcc
 
 RUN wget -nv -O bootlin-toolchain-gcc-93.tar.gz https://developer.nvidia.com/embedded/jetson-linux/bootlin-toolchain-gcc-93 && \
     tar -xf bootlin-toolchain-gcc-93.tar.gz
 
-RUN useradd -ms /bin/bash jenkins
+# RUN useradd -ms /bin/bash jenkins
 
-USER jenkins
-WORKDIR /home/jenkins
+WORKDIR /home/ubuntu
 
 CMD ["/bin/bash"] 
