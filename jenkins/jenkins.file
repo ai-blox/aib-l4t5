@@ -22,8 +22,8 @@ pipeline {
 	stages {
         stage('Pull Kernel') {
             steps {
-                echo ${HOME}
                 sh '''#!/bin/bash -ex
+                echo ${HOME}
                 git submodule init
                 git submodule update
                 git submodule foreach 'git checkout aib-l4t-r35.2.1'
