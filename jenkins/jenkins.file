@@ -21,8 +21,8 @@ pipeline {
 	} */
 	stages {
         stage('Pull Kernel') {
-            slackSend (color: '#7CFC00', message: "STARTED: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
             steps {
+                slackSend (color: '#7CFC00', message: "STARTED: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
                 sh '''#!/bin/bash -ex
                 export MY_DIR=$(pwd)
                 echo $MY_DIR
