@@ -23,9 +23,19 @@ pipeline {
         stage('Pull Kernel') {
             steps {
                 sh '''#!/bin/bash -ex
+                export MY_DIR=pwd
+                echo $MY_DIR
+
                 git submodule init
                 git submodule update
                 git submodule foreach 'git checkout aib-l4t-r35.2.1'
+
+                cd kernel/nvidia/drivers/net/ethernet/nvidia/nvethernet
+                git submodule init
+                git submodule update
+                cd nvethernetrm
+                git checkout aib-l4t-r35.2.1
+                cd $MY_DIR
                 '''
             }
         }
