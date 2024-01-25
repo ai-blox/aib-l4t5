@@ -5,7 +5,7 @@ USER root
 WORKDIR /tmp
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-	git wget lbzip2 build-essential bc zip libgmp-dev libmpfr-dev libmpc-dev vim-common 
+	git wget lbzip2 build-essential bc zip libgmp-dev libmpfr-dev libmpc-dev vim-common python3-sphinx
 
 # Should solve server certificate verification failed. CAfile: none CRLfile: none:
 RUN apt-get install -y --reinstall ca-certificates && \
