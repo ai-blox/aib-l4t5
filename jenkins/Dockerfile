@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-	git wget lbzip2 build-essential bc zip libgmp-dev libmpfr-dev libmpc-dev vim-common python3-sphinx
+	git wget lbzip2 build-essential bc zip libgmp-dev libmpfr-dev libmpc-dev vim-common python3-sphinx flex
 
 # Should solve server certificate verification failed. CAfile: none CRLfile: none:
 RUN apt-get install -y --reinstall ca-certificates && \
