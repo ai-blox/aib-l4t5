@@ -65,9 +65,10 @@ pipeline {
         }
         stage('Upload to S3') {
             steps {
-                withAWS(region:'us-west-2',credentials:'wach-jenkins-cred') {
+                withAWS(region:'eu-central-1',credentials:'jenkins.conexus.cloud') {
                     sh 'echo "Uploading content with AWS creds"'
-                    s3Upload(file:'file.txt', bucket:'my-bucket', path:'path/to/target/file.txt')
+                    sh 'touch file.txt'
+                    s3Upload(file:'file.txt', bucket:'l4t5-artifact-bucket', path:'path/to/target/file.txt')
                 }
             }
         }
