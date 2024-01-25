@@ -4,6 +4,9 @@ USER root
 
 WORKDIR /tmp
 
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
+
 RUN apt-get update && apt-get install --no-install-recommends -y \
 	git wget lbzip2 build-essential bc zip libgmp-dev libmpfr-dev libmpc-dev vim-common python3-sphinx
 
