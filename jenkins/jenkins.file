@@ -21,6 +21,7 @@ pipeline {
 	} */
 	stages {
         stage('Pull Kernel') {
+            slackSend (color: '#7CFC00', message: "STARTED: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
             steps {
                 sh '''#!/bin/bash -ex
                 export MY_DIR=$(pwd)
@@ -60,6 +61,19 @@ pipeline {
                 make ARCH=arm64 O=$KERNEL_OUT CROSS_COMPILE=$CROSS_COMPILE -j4 LOCALVERSION="-tegra"
 
                 '''
+            }
+        }
+        stage('Upload') {
+            steps {
+                s3Upload(bucket:"my-bucket", path:'path/to/targetFolder/', includePathPattern:'**/*.svg', workingDir:'dist')
+            }
+            post {
+                success {
+
+                }
+                failure {
+
+                }
             }
         }
 	}
