@@ -67,14 +67,6 @@ pipeline {
             steps {
                 s3Upload(bucket:"my-bucket", path:'path/to/targetFolder/', includePathPattern:'**/*.svg', workingDir:'dist')
             }
-            post {
-                success {
-
-                }
-                failure {
-
-                }
-            }
         }
 	}
 }
