@@ -23,7 +23,7 @@ pipeline {
         stage('Pull Kernel') {
             steps {
                 sh '''#!/bin/bash -ex
-                export MY_DIR=pwd
+                export MY_DIR=$(pwd)
                 echo $MY_DIR
 
                 git submodule init
