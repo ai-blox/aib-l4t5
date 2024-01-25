@@ -18,13 +18,13 @@ RUN apt-get install -y --reinstall ca-certificates && \
     update-ca-certificates && \
     git config --global http.sslCAinfo /etc/ssl/certs/ca-certificates.crt
 
-WORKDIR /aib-l4t5
-
-RUN echo $HOME 
+WORKDIR /l4t5-gcc
 
 RUN wget -nv -O bootlin-toolchain-gcc-93.tar.gz https://developer.nvidia.com/embedded/jetson-linux/bootlin-toolchain-gcc-93 && \
     tar -xf bootlin-toolchain-gcc-93.tar.gz
 
-RUN echo $HOME      
+RUN useradd -ms /bin/bash ubuntu
+
+WORKDIR /home/ubuntu
 
 CMD ["/bin/bash"] 
