@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-USER root
+# USER root
 
 WORKDIR /tmp
 
@@ -22,8 +22,6 @@ WORKDIR /l4t5-gcc
 
 RUN wget -nv -O bootlin-toolchain-gcc-93.tar.gz https://developer.nvidia.com/embedded/jetson-linux/bootlin-toolchain-gcc-93 && \
     tar -xf bootlin-toolchain-gcc-93.tar.gz
-
-# RUN useradd -ms /bin/bash jenkins
 
 WORKDIR /aib-l4t5
 
