@@ -16,7 +16,7 @@ pipeline {
         stage('Pull Kernel') {
             steps {
                 slackSend (color: '#7CFC00', message: "Started: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
-                sh './update_source.sh \'${env.BRANCH}\''
+                sh "./update_source.sh \"${env.BRANCH}\""
             }
         }
         stage('Build Kernel') {
