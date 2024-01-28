@@ -23,7 +23,7 @@ pipeline {
                      ).trim()
                  }
 
-            }
+            }/*
             post{
                 failure {
                     script {
@@ -31,7 +31,7 @@ pipeline {
                         error "Pull Kernel failed: \"${PULL_RESULT}\""
                     }
                 }
-            }
+            }*/
         }
         stage('Build Kernel') {
             steps {
