@@ -19,11 +19,12 @@ pipeline {
             steps {
                 slackSend (color: '#7CFC00', message: "Started: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
                 script {
-                     PULL_RESULT = sh(
+                    PULL_RESULT = "1234"
+                    PULL_RESULT = sh(
                         script: "./update_source.sh \"${env.BRANCH}\"",
                         returnStdout: true
-                     ).trim()                 }
-
+                    ).trim()
+                }
             }
             post{
                 failure {
