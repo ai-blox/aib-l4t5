@@ -16,10 +16,13 @@ pipeline {
         stage('Pull Kernel') {
             steps {
                 slackSend (color: '#7CFC00', message: "Started: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
-                def PULL_RESULT = sh(
+                script {
+                    def PULL_RESULT = sh(
                         script: "./update_source.sh \"${env.BRANCH}\"",
                         returnStdout: true
                      ).trim()
+                 }
+                 
             }
             post{
                 failure {
