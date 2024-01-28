@@ -1,15 +1,12 @@
 #!/bin/bash
 
-set -e
-
 PROJECT_DIR=$(pwd)
 
 function error() {
 
     cd "$PROJECT_DIR"
-    exit 0
+    exit 1
 }
-
 
 git submodule init
 
