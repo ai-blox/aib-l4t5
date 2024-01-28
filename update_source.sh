@@ -9,6 +9,7 @@ function error() {
 }
 
 git submodule init
+git submodule update
 
 cd kernel/kernel-5.10   
 if [ -z "$1" ]; then
@@ -28,7 +29,6 @@ else
 fi
 cd "$PROJECT_DIR"
 
-git submodule update
 git submodule foreach 'git checkout $BRANCH'
 
 cd kernel/nvidia/drivers/net/ethernet/nvidia/nvethernet
