@@ -18,6 +18,7 @@ if [ -z "$1" ]; then
 fi
 
 echo "Current dir: $(pwd)"  
+git branch
 
 if git show-ref --quiet refs/heads/$1; then
     BRANCH=$1
