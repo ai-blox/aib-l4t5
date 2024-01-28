@@ -2,8 +2,6 @@ node('jenkins-ec2-plugin-slave') {
 
 }
 
-def PULL_RESULT
-
 pipeline {
 	agent {
         dockerfile {
@@ -17,18 +15,12 @@ pipeline {
 	stages {
         stage('Pull Kernel') {
             steps {
-                slackSend (color: '#7CFC00', message: "Started: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
-                script {
-                    PULL_RESULT = "1234"
-                    PULL_RESULT = sh(
-                        script: "./update_source.sh \"${env.BRANCH}\"",
-                        returnStdout: true
-                    )
-                }
+                slackSend (color: '#7CFC00', message: "Started: L4T SP5 build, branch: ${env.BRANCH} -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
+                sh "./update_source.sh \"${env.BRANCH}\""
             }
             post{
                 failure {
-                    slackSend (color: '#fc0000', message: "Build ${env.BUILD_NUMBER} failed: Pull kernel failed: ${PULL_RESULT} -- (<${env.BUILD_URL}|Open>)")
+                    slackSend (color: '#fc0000', message: "Build ${env.BUILD_NUMBER} failed: Unable to pull ${env.BRANCH} -- (<${env.BUILD_URL}|Open>)")
                 }
             }
         }
