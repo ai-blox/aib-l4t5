@@ -23,7 +23,7 @@ pipeline {
                     PULL_RESULT = sh(
                         script: "./update_source.sh \"${env.BRANCH}\"",
                         returnStdout: true
-                    ).trim()
+                    )
                 }
             }
             post{
