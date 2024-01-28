@@ -17,6 +17,8 @@ if [ -z "$1" ]; then
     error
 fi
 
+echo "Current dir: $(pwd)"  
+
 if git show-ref --quiet refs/heads/$1; then
     BRANCH=$1
 else
@@ -25,7 +27,7 @@ else
 fi
 cd "$PROJECT_DIR"
 
-git submodule udate
+git submodule update
 git submodule foreach 'git checkout $BRANCH'
 
 cd kernel/nvidia/drivers/net/ethernet/nvidia/nvethernet
