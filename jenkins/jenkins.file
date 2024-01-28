@@ -2,8 +2,6 @@ node('jenkins-ec2-plugin-slave') {
 
 }
 
-def PULL_RESULT = "Empty"
-
 pipeline {
 	agent {
         dockerfile {
@@ -19,11 +17,10 @@ pipeline {
             steps {
                 slackSend (color: '#7CFC00', message: "Started: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
                 script {
-                    PULL_RESULT = sh(
+                    def PULL_RESULT = sh(
                         script: "./update_source.sh \"${env.BRANCH}\"",
                         returnStdout: true
                      ).trim()
-                     PULL_RESULT = "1234"
                      sh 'echo "PULL RESULT: ${PULL_RESULT}"'
                  }
 
