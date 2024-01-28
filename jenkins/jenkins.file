@@ -14,24 +14,19 @@ pipeline {
     }
 	stages {
         stage('Pull Kernel') {
+            def PULL_RESULT
             steps {
                 slackSend (color: '#7CFC00', message: "Started: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
                 script {
-                    def PULL_RESULT = sh(
+                     PULL_RESULT = sh(
                         script: "./update_source.sh \"${env.BRANCH}\"",
                         returnStdout: true
-                     ).trim()
-                     sh 'echo "PULL RESULT: ${PULL_RESULT}"'
-                 }
+                     ).trim()                 }
 
             }
             post{
                 failure {
                     slackSend (color: '#fc0000', message: "Build ${env.BUILD_NUMBER} failed: Pull kernel failed: ${PULL_RESULT} -- (<${env.BUILD_URL}|Open>)")
-                   // script {
-                   //     slackSend (color: '#fc0000', message: "Build ${env.BUILD_NUMBER} failed: Pull kernel failed: ${PULL_RESULT} -- (<${env.BUILD_URL}|Open>)")")
-             //           error "Pull Kernel failed:" //" ${PULL_RESULT}"
-                   // }
                 }
             }
         }
