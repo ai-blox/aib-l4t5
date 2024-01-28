@@ -2,7 +2,7 @@ node('jenkins-ec2-plugin-slave') {
 
 }
 
-def PULL_RESULT = ""
+def PULL_RESULT = "Empty"
 
 pipeline {
 	agent {
@@ -30,8 +30,8 @@ pipeline {
             post{
                 failure {
                     script {
-             //           slackSend (color: '#fc0000', message: "Build ${env.BUILD_NUMBER} failed: Pull kernel failed: \"${PULL_RESULT}\" -- (<${env.BUILD_URL}|Open>)")")
-                        error "Pull Kernel failed:" //" ${PULL_RESULT}"
+                        slackSend (color: '#fc0000', message: "Build ${env.BUILD_NUMBER} failed: Pull kernel failed: ${PULL_RESULT} -- (<${env.BUILD_URL}|Open>)")")
+             //           error "Pull Kernel failed:" //" ${PULL_RESULT}"
                     }
                 }
             }
