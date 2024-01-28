@@ -15,7 +15,7 @@ pipeline {
 	stages {
         stage('Pull Kernel') {
             steps {
-                slackSend (color: '#7CFC00', message: "Started: L4T SP5 build, branch: ${env.BRANCH} -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
+                slackSend (color: '#0026fc', message: "Started: L4T SP5 build, branch: ${env.BRANCH} -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
                 sh "./update_source.sh \"${env.BRANCH}\""
             }
             post{
@@ -53,10 +53,10 @@ pipeline {
                 withAWS(region:'eu-central-1',credentials:'jenkins.conexus.cloud') {
                     sh 'echo "Uploading content with AWS creds"'
                     sh 'touch file.txt'
-                    s3Upload(file:'images/arch/arm64/boot/dts/nvidia/tegra194-p3668-all-mx1030-1.dtb', bucket:'l4t5-artifact-bucket', path:'aib-l4t-r35.2.1/tegra194-p3668-all-mx1030-1.dtb')
-                    s3Upload(file:'images/arch/arm64/boot/dts/nvidia/tegra194-p3668-all-mx1030-2.dtb', bucket:'l4t5-artifact-bucket', path:'aib-l4t-r35.2.1/tegra194-p3668-all-mx1030-2.dtb')
+                    s3Upload(file:'images/arch/arm64/boot/dts/nvidia/tegra194-p3668-all-mx1030-1.dtb', bucket:'l4t5-artifact-bucket', path:'${env.BRANCH}/tegra194-p3668-all-mx1030-1.dtb')
+                    s3Upload(file:'images/arch/arm64/boot/dts/nvidia/tegra194-p3668-all-mx1030-2.dtb', bucket:'l4t5-artifact-bucket', path:'${env.BRANCH}/tegra194-p3668-all-mx1030-2.dtb')
                 }
-                slackSend (color: '#7CFC00', message: "Finished: L4T SP5 build -- Build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
+                slackSend (color: '#7CFC00', message: "Build ${env.BUILD_NUMBER} L4T SP5, branch: ${env.BRANCH} Successful! -- (<${env.BUILD_URL}|Open>)")
             }
         }
 	}
