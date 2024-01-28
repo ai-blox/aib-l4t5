@@ -7,7 +7,7 @@ PROJECT_DIR=$(pwd)
 function error() {
 
     cd "$PROJECT_DIR"
-    exit 1
+    exit 0
 }
 
 
